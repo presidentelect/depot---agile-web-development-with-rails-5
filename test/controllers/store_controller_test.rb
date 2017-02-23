@@ -8,6 +8,6 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     assert_select '#main .entry', 3
     assert_select 'h3', 'Programming Ruby 1.9'
     assert_select '.price', /\A\$[,\d]+\.\d\d\z/
-    assert_select 'title', 2
+    assert_select 'title', 1
   end
 end
