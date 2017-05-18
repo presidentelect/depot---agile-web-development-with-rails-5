@@ -4,10 +4,14 @@
     <tr>
     <% end %>  
       <td><%= line_item.quantity %> &times;</td>
+      <% if @order.nil? %>
       <td><%= button_to "-", decrement_line_item_path(line_item),
               action: :decrement, method: :post, remote: true %></td>
-      <td><%= line_item.product.title %></td>
+      <% end %>
+      <td><%= line_item.product.title -%></td>
       <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+      <% if @order.nil? %>
       <td class="remove_item"><%= button_to "Remove", line_item, method: :delete, 
         data: {confirm: "Are you sure?"} %></td>
+      <% end %>
     </tr>
